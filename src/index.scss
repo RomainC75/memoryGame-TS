@@ -1,0 +1,166 @@
+html, body ,#root{
+  height:100%;
+}
+body {
+  margin: 0;
+  font-family: 'Atkinson Hyperlegible', sans-serif, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size:18px;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*{
+  font-weight:bold;
+}
+h1{
+  font-size:48px;
+}
+h2{
+  font-size:32px;
+}
+h3{
+  font-size:20px;
+}
+
+.grid4x4{
+  font-size:44px;
+}
+.grid4x4{
+  font-size:44px;
+}
+   /*---BUTTONS---*/
+.button{
+  color:white;
+  border-radius:3em;
+  height:52px;
+  background:#BCCED9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+  &:hover{
+    background:#6395B8;
+  }
+}
+
+.buttonLittle{
+  width:119px;
+}
+
+.buttonBig{
+  width:256px;
+}
+
+.button--active{
+  background:#304859;
+}
+
+.startButton{
+  background:#FDA214;
+  width:100%;
+  &:hover{
+    background:#FFB84A;
+  }
+}
+
+
+
+
+
+
+.App{
+  height:100%;
+}
+
+.numberDefaultCSS{
+  width:80%;
+  height:80%;
+  border-radius:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:44px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.hiddenNumber{
+  background:#304859;
+  color:#304859;
+}
+
+.discoveredNumber{
+  background:#BCCED9;
+  color:white;
+}
+
+.waitingNumber{
+  background:#FDA214;
+  color:white;
+}
+
+/*---setParameters---*/
+
+
+
+
+.setParameters{
+  background:#152938;
+  height:100%;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  &__sub{
+    width:654px;
+    height:687px;
+  }
+
+}
+
+.paramWin{
+  width:100%;
+  height:559px;
+  background:rgb(255, 255, 255);
+  border-radius:0.5em;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+  &__inner{
+    width:80%;
+    height:80%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__section{
+    height:93px;
+    margin-bottom:32px;
+    
+    &__title{
+      text-align: left;
+      color:#7191A5;
+      &__p{
+        margin:0 0 21px 0;
+      }
+    }
+
+    &__buttons{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      &__button{
+
+      }
+    }
+  }
+}
