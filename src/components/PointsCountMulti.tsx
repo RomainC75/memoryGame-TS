@@ -6,10 +6,16 @@ import Box from './Box'
 
 
 export default function PointsCountMulti() {
-    const { players , setPlayers, state } = useContext(AppContext) as AppContextType
+    const { players , state } = useContext(AppContext) as AppContextType
     return (
         <div className="PointsCountMulti">
-            {players.points.filter((val,index)=>index<state.playersNumber).map((player,index)=><Box key={index} name={`Player ${index+1}`} value={players.points[index].toString()} turn={players.turn===index ? true : false} triangle={state.playersNumber>1 && players.turn==index}/>)}
+            {players.points.filter((val,index)=>index<state.playersNumber)
+                .map((player,index)=>
+                    <Box key={index} name={`Player ${index+1}`} 
+                        value={players.points[index].toString()} 
+                        turn={players.turn===index ? true : false} 
+                        triangle={state.playersNumber>1 && players.turn===index}
+                    />)}
         </div>
     )
 }

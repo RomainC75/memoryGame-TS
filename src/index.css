@@ -183,8 +183,88 @@ h3 {
   width: 80%;
   margin: 67px auto 0 auto;
 }
+.Menu__memory {
+  margin: 0;
+  font-size: 33px;
+}
 .Menu__buttons {
   display: flex;
+  gap: 2%;
+}
+.Menu__buttons__MenuButton {
+  display: none;
+}
+
+/*---Grid---*/
+.griddiv {
+  display: grid;
+  width: 572px;
+  height: 572px;
+  margin: 67px auto;
+}
+.griddiv__template4 {
+  grid-template: repeat(4, 25%)/repeat(4, 25%);
+}
+.griddiv__template6 {
+  grid-template: repeat(6, 16%)/repeat(6, 16%);
+}
+
+.numberDefaultCSS {
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 44px;
+  font-weight: 900;
+  cursor: pointer;
+  justify-self: center;
+  align-self: center;
+}
+
+.hiddenNumber {
+  background: #304859;
+  color: #304859;
+}
+
+.discoveredNumber {
+  background: #BCCED9;
+  color: white;
+}
+
+.waitingNumber {
+  background: #FDA214;
+  color: white;
+}
+
+.DisplayMenu__background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #304859;
+  opacity: 0.5;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.DisplayMenu__menu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 224px;
+  width: 327px;
+  background: white;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0.5em;
 }
 
 .Box {
@@ -199,6 +279,7 @@ h3 {
   border-radius: 0.5em;
   padding: 20px 15px;
   box-sizing: border-box;
+  margin-bottom: 40px;
 }
 .Box.yellowBox {
   background: #FFB84A;
@@ -213,6 +294,13 @@ h3 {
   position: absolute;
   transform: translate(85px, -30px) rotate(45deg);
   z-index: -1;
+}
+.Box__currentTurn {
+  position: absolute;
+  font-size: 13px;
+  transform: translate(30px, 50px);
+  letter-spacing: 0.4rem;
+  color: #152938;
 }
 
 .PointsCountMono__boxes {
@@ -280,4 +368,48 @@ h3 {
 
 .grey {
   color: #7191A5;
+}
+
+/****************************/
+@media (max-width: 700px) {
+  .setParameters__sub {
+    width: 327px;
+  }
+  .setParameters__sub h1 {
+    font-size: 32px;
+  }
+
+  .paramWin {
+    height: 386px;
+  }
+  .paramWin__inner {
+    width: 279px;
+    height: 338px;
+  }
+  .paramWin__section {
+    margin-bottom: 24px;
+  }
+  .paramWin__section__title {
+    font-size: 15px;
+  }
+  .paramWin__section__title__p {
+    margin: 0 0 11px 0;
+  }
+  .paramWin__section__buttons {
+    gap: 3%;
+  }
+
+  .Menu__buttons .Menu__buttons__NewGameButton, .Menu__buttons .Menu__buttons__RestartButton {
+    display: none;
+  }
+
+  .Menu__buttons__MenuButton {
+    display: flex;
+    width: 78px;
+  }
+
+  .button {
+    height: 40px;
+    font-size: 16px;
+  }
 }/*# sourceMappingURL=index.css.map */

@@ -1,5 +1,4 @@
 import React from 'react'
-import Matrix from '../models/matrix'
 import { AppContextState, AppContextType, MatrixContextState, PlayersContextState } from '../@types/state';
 
 const defaultState= {

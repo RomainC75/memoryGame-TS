@@ -1,29 +1,29 @@
 import React from 'react'
-import { useContext , useState , useEffect} from 'react'
+import { useContext , useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../utils/context'
 import Matrix from '../models/matrix'
-import { AppContextState, AppContextType } from '../@types/state';
+import { AppContextType } from '../@types/state';
 
 export default function SetParameters() {
   const navigate = useNavigate()
 
-  const { state , setState, matrix, setMatrix, players, setPlayers} = useContext(AppContext) as AppContextType
+  const { state , setState, setMatrix, players, setPlayers } = useContext(AppContext) as AppContextType
   const [ themeState , setThemeState ] = useState(state.theme)
   const [ playersNumberState , setPlayersNumberState ] = useState(state.playersNumber)
   const [ sizeState , setSizeState ] = useState(state.grid)
 
-  const changeTheme = (val:boolean) => {
+  const changeTheme = (val:boolean):void => {
     setThemeState(val)
     state.theme=val
   }
 
-  const changePlayersNumber = (num:number) => {
+  const changePlayersNumber = (num:number):void => {
     setPlayersNumberState(num)
     state.playersNumber=num
   }
 
-  const changeGridSize = (num:number)=>{
+  const changeGridSize = (num:number):void=>{
     setSizeState(num)
     setState({
       grid: num,

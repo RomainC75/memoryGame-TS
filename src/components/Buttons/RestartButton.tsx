@@ -1,12 +1,15 @@
 import React from 'react'
-import { useContext , useState , useEffect} from 'react'
+import { useContext } from 'react'
 import { AppContext } from '../../utils/context'
 import Matrix from '../../models/matrix'
 import { AppContextType} from '../../@types/state';
 
+interface RestartButtonProp{
+    setDisplayMenuState?:(state:boolean)=>void;
+}
 
-export default function Restart() {
-    const { state, matrix, setMatrix, players, setPlayers } = useContext(AppContext) as AppContextType
+export default function RestartButton(props:RestartButtonProp) {
+    const { state, setMatrix, setPlayers } = useContext(AppContext) as AppContextType
 
     const restart = () => {
         const matrixObj=new Matrix(state.grid)
@@ -21,9 +24,10 @@ export default function Restart() {
             finished:false,
             restarted:true
         })
+        props.setDisplayMenuState && props.setDisplayMenuState(false)
     }
 
     return (
-        <div className="Menu__buttons__Restart button primaryButton" onClick={ ()=>restart() }>Restart</div>
+        <div className="Menu__buttons__RestartButton button primaryButton" onClick={ ()=>restart() }>Restart</div>
     )
 }

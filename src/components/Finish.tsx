@@ -2,8 +2,8 @@ import React from 'react'
 import { useContext } from 'react'
 import { AppContext } from '../utils/context'
 import { AppContextType } from '../@types/state'
-import Restart from './Buttons/Restart'
-import NewGame from './Buttons/NewGame'
+import RestartButton from './Buttons/RestartButton'
+import NewGameButton from './Buttons/NewGameButton'
 
 export default function Finish() {
     const { state, players } = useContext(AppContext) as AppContextType
@@ -63,8 +63,8 @@ export default function Finish() {
 
 
                     <div className="Finish__buttons">
-                        <Restart/>
-                        <NewGame/>
+                        <RestartButton/>
+                        <NewGameButton/>
                     </div>
                 </div>
             </>

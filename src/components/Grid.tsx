@@ -8,9 +8,6 @@ import Icon from './Icon'
 interface Props{
     grid:number;
 }
-// interface styleObject{
-//     [key:string]: any;
-// }
 
 export const Griddiv = styled.div`
     display: grid;
@@ -58,14 +55,14 @@ const includedInMatrix = ( matrix:[number,number][][] , grid:number , val:number
 }
 
 export default function Grid() {
-    const { state, setState, matrix, setMatrix, players, setPlayers } = useContext(AppContext) as AppContextType
+    const { state, matrix, setMatrix, players, setPlayers } = useContext(AppContext) as AppContextType
     const [ pause, setPause ] = useState<boolean>(false)
     //const [ finished , setFinished ] = useState<boolean>(false)
     const [ empty, setEmpty ] = useState<boolean>(true)
 
     useEffect(()=>{
         setMatrix({
-            matrix:matrix.matrix,
+            ...matrix,
             temp:[-1,-1]
         })
     },[])
@@ -89,7 +86,6 @@ export default function Grid() {
         if(matrix){
             const matrixBuffer:[number,number][][] =  matrix.matrix;
             const playersBuffer:PlayersContextState= players
-            //matrixBuffer[column][row][1]= matrixBuffer[column][row][1]==1 ? 0 : 1;
             //////////////
             // 0:hide
             // 1:orange
@@ -104,21 +100,16 @@ export default function Grid() {
                     temp:[-1,-1]
                 }) 
             }else if(matrix.matrix[column][row][1]===0){
-                // console.log('TURN : ',players.turn)
                 //no previous selection
                 if(JSON.stringify(matrix.temp)==="[-1,-1]" && !includedInMatrix(matrix.matrix, state.grid,1)){
-                    // console.log("A")
                     matrixBuffer[column][row][1]=1
                     setMatrix({
                         matrix:matrix.matrix,
                         temp:[column,row]
-                    })
-                                    
+                    })              
                 //with previous selection 
                 }else{
-                    // console.log("B : ",matrix.matrix[column][row],'--',matrix.matrix[matrix.temp[0]][matrix.temp[1]])
                     if(matrix.matrix[column][row][0]===matrix.matrix[matrix.temp[0]][matrix.temp[1]][0]){
-                        // console.log("B-A")
                         //same value
                         // -> -1
                         matrixBuffer[column][row][1]=-1
@@ -132,7 +123,6 @@ export default function Grid() {
                         setPlayers(playersBuffer)
                         
                     }else{
-                        // console.log("B-B")
                         //not the same value
                         //flip the coin
                         matrixBuffer[column][row][1]=1
@@ -149,8 +139,7 @@ export default function Grid() {
                             ...players,
                             turn: players.turn < state.playersNumber-1 ? players.turn+1 : 0
                         }) 
-                    }
-                                       
+                    }                
                 }
                 //1 player !
                 if(state.playersNumber===1){
@@ -160,9 +149,7 @@ export default function Grid() {
                     })
                 }
             console.log(matrix.matrix[column][row][1])
-            //console.log(matrix.matrix)
             console.log(matrix.temp)
-            //emptyToggle()
             }
             if(!includedInMatrix(matrix.matrix,state.grid,0) && !includedInMatrix(matrix.matrix,state.grid,0)){
                 setPlayers({
@@ -181,9 +168,15 @@ export default function Grid() {
                     return (
                         column.map((row,rowIndex)=>{
                             return(
-                                <div key={`${columnIndex}-${rowIndex}`} style={ matrix.matrix[columnIndex][rowIndex][1]===0 && {...numberDefaultCSS,...hiddenNumber} || matrix.matrix[columnIndex][rowIndex][1]===-1 && {...numberDefaultCSS, ...discoveredNumber} || {...numberDefaultCSS, ...waitingNumber} }
+                                <div key={`${columnIndex}-${rowIndex}`} 
+                                    style={ (matrix.matrix[columnIndex][rowIndex][1]===0 && {...numberDefaultCSS,...hiddenNumber}) 
+                                        || (matrix.matrix[columnIndex][rowIndex][1]===-1 && {...numberDefaultCSS, ...discoveredNumber}) 
+                                        || {...numberDefaultCSS, ...waitingNumber} }
                                     onClick={(el)=>toggleState( columnIndex,rowIndex )}>
-                                    <div style={{display:"flex"}}>{state.theme ? row[0] : <Icon iconNumber={matrix.matrix[columnIndex][rowIndex][0]}/>  }</div>
+                                    <div 
+                                        style={{display:"flex"}}>{state.theme ? row[0] : 
+                                        <Icon iconNumber={matrix.matrix[columnIndex][rowIndex][0]}/>  }
+                                    </div>
                                 </div>
                             )
                         })

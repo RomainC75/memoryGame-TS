@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import { BrowserRouter as Router, useParams, Routes, Route, Link, useRoutes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SetParameters from './components/SetParameters';
 import './App.css';
 import { AppProvider } from './utils/context'

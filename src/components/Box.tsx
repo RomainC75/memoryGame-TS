@@ -14,6 +14,8 @@ export default function Box(props:BoxInfos) {
             {props.triangle && <div className="Box__triangle"></div>}
             <div className="Box__leftVal">{props.name}</div>
             <div className="Box__rightVal">{props.value ? props.value : props.children}</div>
+            {props.triangle && <div className="Box__currentTurn">CURRENT TURN</div>}
+            
         </div>
     )
 }

@@ -1,11 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useContext , useState , useEffect} from 'react'
+import { useContext } from 'react'
 import { AppContext } from '../../utils/context'
-import Matrix from '../../models/matrix'
-import { AppContextState,AppContextType, PlayersContextState, MatrixContextType } from '../../@types/state';
+import { AppContextType } from '../../@types/state';
 
-export default function NewGame() {
+export default function NewGameButton() {
     const { players , setPlayers } = useContext(AppContext) as AppContextType
     const navigate=useNavigate()
     const newGame = () => {
@@ -18,7 +17,7 @@ export default function NewGame() {
     }
     return (
         <div>
-            <div className="Menu__buttons__NewGame button secondaryButton" onClick={ ()=>newGame() }>New Game</div>
+            <div className="Menu__buttons__NewGameButton button secondaryButton" onClick={ ()=>newGame() }>New Game</div>
         </div>
     )
 }
