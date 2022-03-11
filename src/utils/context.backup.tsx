@@ -4,7 +4,7 @@ import Matrix from '../models/matrix';
 
 export interface IProviderProps {
     children?: any;
-  }
+}
 
 type AppContextState = { 
     grid: number;
@@ -12,7 +12,7 @@ type AppContextState = {
     userName: string;
     playersNumber: number;
     matrix: number[][];
- }
+}
 
 const appCtxDefaultValue = {
     state: { 

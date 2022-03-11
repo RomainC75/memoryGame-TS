@@ -4,29 +4,19 @@ import { BrowserRouter as Router, useParams, Routes, Route, Link, useRoutes } fr
 import SetParameters from './components/SetParameters';
 import './App.css';
 import { AppProvider } from './utils/context'
-import Grid from './components/Grid';
+import Game from './components/Game';
 
-
-function App() {
+export default function App() {
   return (
-
     <AppProvider>
       <div className="App">
         <Router>
           <Routes>
             <Route path="/" element={ <SetParameters/> }/>
-            <Route path="/game/" element={<Grid/>}/>
+            <Route path="/game/" element={<Game/>}/>
           </Routes>
         </Router>
-
-           
-
-
-
-
       </div>
     </AppProvider>
   );
 }
-
-export default App;

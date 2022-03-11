@@ -1,14 +1,14 @@
 import React from 'react'
 import { useContext , useState , useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../utils/context'
 import Matrix from '../models/matrix'
 import { AppContextState, AppContextType } from '../@types/state';
 
 export default function SetParameters() {
-  const { state , setState} = useContext(AppContext) as AppContextType
-  console.log("playersnumber : ",state.playersNumber)
+  const navigate = useNavigate()
 
-
+  const { state , setState, matrix, setMatrix, players, setPlayers} = useContext(AppContext) as AppContextType
   const [ themeState , setThemeState ] = useState(state.theme)
   const [ playersNumberState , setPlayersNumberState ] = useState(state.playersNumber)
   const [ sizeState , setSizeState ] = useState(state.grid)
@@ -22,20 +22,32 @@ export default function SetParameters() {
     setPlayersNumberState(num)
     state.playersNumber=num
   }
+
   const changeGridSize = (num:number)=>{
     setSizeState(num)
-    const matrix= new Matrix(num)
-    const newMatrix=matrix.getRandomGrid()
     setState({
-      grid: state.grid,
-    theme: state.theme,
-    userName: state.userName,
-    playersNumber: state.playersNumber,
-    matrix: newMatrix})
+      grid: num,
+      theme: state.theme,
+      userName: state.userName,
+      playersNumber: state.playersNumber
+    })
     console.log(state)
   }
 
-
+  const startGame = ()=>{
+    const matrixObj= new Matrix(state.grid)
+    setMatrix({
+      matrix:matrixObj.getRandomGrid(),
+      temp:[-1,-1]
+    })
+    setPlayers({
+      ...players,
+      points:[0,0,0,0],
+      finished:false
+    })
+    console.log("reset date !")
+    navigate('/game/')
+  }
 
   return (
     <div className="setParameters">
@@ -45,6 +57,7 @@ export default function SetParameters() {
         <h1>memory</h1>
         <div className="paramWin">
           <div className="paramWin__inner">
+
             <div className="paramWin__section">
               <div className="paramWin__section__title">
                 <p className="paramWin__section__title__p">Select Theme</p>
@@ -95,9 +108,10 @@ export default function SetParameters() {
 
             <div className="paramWin__section">
               <div className="paramWin__section__buttons">
-                <div className="paramWin__section__buttons__buttons button startButton">Start Game</div>
+                <div className="paramWin__section__buttons__buttons button startButton" onClick={()=>startGame()}>Start Game</div>
               </div>
             </div>
+
           </div>
 
         </div>
