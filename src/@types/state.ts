@@ -3,7 +3,6 @@ export interface AppContextState {
     theme: boolean;
     userName: string;
     playersNumber: number;
-    
 }
 
 export interface MatrixContextState{

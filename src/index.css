@@ -13,6 +13,7 @@ body {
   -moz-user-select: -moz-none;
   -ms-user-select: none;
   user-select: none;
+  min-width: 320px;
 }
 
 code {
@@ -179,7 +180,6 @@ h3 {
   display: flex;
   justify-content: space-between;
   max-width: 1100px;
-  min-width: 550px;
   width: 80%;
   margin: 67px auto 0 auto;
 }
@@ -238,6 +238,7 @@ h3 {
   color: white;
 }
 
+/*------*/
 .DisplayMenu__background {
   position: absolute;
   top: 0;
@@ -287,12 +288,15 @@ h3 {
 .Box__rightVal {
   color: #304859;
 }
+.Box__leftValMin {
+  display: none;
+}
 .Box__triangle {
   width: 63px;
   height: 63px;
   background: #FFB84A;
   position: absolute;
-  transform: translate(85px, -30px) rotate(45deg);
+  transform: translate(50%, -30%) rotate(45deg);
   z-index: -1;
 }
 .Box__currentTurn {
@@ -315,6 +319,7 @@ h3 {
   justify-content: space-around;
   margin: 0 auto;
   max-width: 1100px;
+  gap: 1%;
 }
 
 .Background {
@@ -370,7 +375,12 @@ h3 {
   color: #7191A5;
 }
 
-/****************************/
+/*********************/
+@media (max-width: 950px) {
+  .Box__currentTurn {
+    opacity: 0;
+  }
+}
 @media (max-width: 700px) {
   .setParameters__sub {
     width: 327px;
@@ -411,5 +421,29 @@ h3 {
   .button {
     height: 40px;
     font-size: 16px;
+  }
+
+  .griddiv {
+    width: 327px;
+    height: 327px;
+  }
+}
+@media (max-width: 600px) {
+  .Menu {
+    width: 90%;
+  }
+
+  .Box {
+    flex-direction: column;
+  }
+  .Box__triangle {
+    width: 40px;
+    height: 40px;
+  }
+  .Box__leftVal {
+    display: none;
+  }
+  .Box__leftValMin {
+    display: block;
   }
 }/*# sourceMappingURL=index.css.map */

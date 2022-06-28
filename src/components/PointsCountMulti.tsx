@@ -11,9 +11,11 @@ export default function PointsCountMulti() {
         <div className="PointsCountMulti">
             {players.points.filter((val,index)=>index<state.playersNumber)
                 .map((player,index)=>
-                    <Box key={index} name={`Player ${index+1}`} 
-                        value={players.points[index].toString()} 
-                        turn={players.turn===index ? true : false} 
+                    <Box key={index} 
+                        name={`Player ${index+1}`}
+                        nameMin={`P ${index+1}`}
+                        value={players.points[index].toString()}
+                        turn={players.turn===index ? true : false}
                         triangle={state.playersNumber>1 && players.turn===index}
                     />)}
         </div>
