@@ -179,9 +179,6 @@ h3{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      &__button{
-
-      }
     }
   }
 }
@@ -367,9 +364,6 @@ h3{
   box-sizing:border-box;
   &__title{
     text-align: center;
-    & p{
-      
-    }
   }
   &__infos{
     
@@ -449,6 +443,10 @@ h3{
   .griddiv{
     width:327px;
     height:327px;
+    & svg{
+      width:32px;
+      height:32px;
+    }
   }
 }
 
