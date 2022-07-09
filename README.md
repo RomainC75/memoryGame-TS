@@ -1,5 +1,6 @@
 # Frontend Mentor - Memory game solution
 
+![alt text](https://res.cloudinary.com/dz209s6jk/image/upload/q_auto,w_700/Challenges/lphd7s3gcbcgcxmfjt19.jpg)
 
 This is a solution to the [Memory game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/memory-game-vse4WFPvM). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 ## Table of contents
