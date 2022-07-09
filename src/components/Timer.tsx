@@ -41,10 +41,10 @@ const Timer = (props:any) => {
     });
 
     return (
-        <div>
+        <div className="time">
         { minutes === 0 && seconds === 0
             ? null
-            : <h1> { minutes }:{ seconds < 10 ?  `0${ seconds }` : seconds }</h1> 
+            : <p > { minutes }:{ seconds < 10 ?  `0${ seconds }` : seconds }</p> 
         }
         </div>
     )

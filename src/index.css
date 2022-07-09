@@ -36,6 +36,11 @@ h3 {
   font-size: 20px;
 }
 
+.time {
+  font-size: 48px;
+  font-weight: bold;
+}
+
 .grid4x4 {
   font-size: 44px;
 }
@@ -566,11 +571,15 @@ h3 {
   .Menu {
     width: 90%;
   }
+  .PointsCountMono__boxes {
+    width: 100%;
+  }
   .Box {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    width: 40%;
   }
   .Box__triangle {
     width: 40px;
@@ -581,6 +590,13 @@ h3 {
   }
   .Box__leftValMin {
     display: block;
+  }
+  .Box__rightVal {
+    font-size: 30px;
+  }
+  .Box .time p {
+    margin: 0;
+    font-size: 35px;
   }
 }
 /*# sourceMappingURL=index.css.map */
