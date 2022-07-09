@@ -35,6 +35,11 @@ h3{
   font-size:20px;
 }
 
+.time{
+  font-size:48px;
+  font-weight:bold;
+}
+
 .grid4x4{
   font-size:44px;
 }
@@ -454,8 +459,12 @@ h3{
   .Menu{
     width:90%;
   }
+  .PointsCountMono__boxes{
+    width:100%;
+  }
   .Box{
     flex-direction:column;
+    width:40%;
     &__triangle{
       width:40px;
       height:40px;
@@ -465,6 +474,13 @@ h3{
     }
     &__leftValMin{
       display:block;
+    }
+    &__rightVal{
+      font-size:30px;
+    }
+    .time p{
+      margin:0;
+      font-size:35px;
     }
   }
 }
