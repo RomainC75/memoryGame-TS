@@ -57,4 +57,3 @@ I needed to implement a Timer function for displaying the total time past in the
 
 - Code Wars - [@Romain75](https://www.codewars.com/users/Romain75)
 - [![Romain's GitHub stats](https://github-readme-stats.vercel.app/api?username=RomainC75)](https://github.com/anuraghazra/github-readme-stats)
-- [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=RomainC75&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
